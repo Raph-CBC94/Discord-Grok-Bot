@@ -92,3 +92,11 @@ pnpm --filter @workspace/discord-bot run start
 
 Configurer les secrets dans les variables d'environnement de l'hébergeur,
 jamais dans GitHub.
+
+## Test Vercel
+
+Une route `api/index.ts` est fournie à la racine pour lancer le bot lors d'une
+invocation HTTP Vercel. Ouvrir `/api` démarre la connexion Discord dans
+l'instance serverless courante. Cette version sert uniquement à un test court :
+Vercel peut arrêter l'instance après la réponse et le bot peut alors se
+déconnecter.
