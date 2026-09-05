@@ -1,0 +1,1 @@
+- [Discord bot runtime](discord-bot-runtime.md) — Gateway bots need a long-running worker and the Message Content intent; serverless Vercel Functions cannot maintain this connection.

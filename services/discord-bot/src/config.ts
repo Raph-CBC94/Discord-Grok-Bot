@@ -7,10 +7,10 @@ export type BotConfig = {
   requestTimeoutMs: number;
 };
 
-function requiredSecret(name: string): string {
-  const value = process.env[name]?.trim();
+function requiredSecret(...names: string[]): string {
+  const value = names.map((name) => process.env[name]?.trim()).find(Boolean);
   if (!value) {
-    throw new Error(`Missing required environment variable: ${name}`);
+    throw new Error(`Missing required environment variable: ${names.join(" or ")}`);
   }
   return value;
 }
@@ -42,7 +42,7 @@ export function loadConfig(): BotConfig {
   }
 
   return {
-    discordToken: requiredSecret("DISCORD_BOT_TOKEN"),
+    discordToken: requiredSecret("DISCORD_BOT_TOKEN", "DISCORD_TOKEN"),
     grokApiKeys,
     grokModel: process.env.GROK_MODEL?.trim() || "grok-3-mini",
     grokBaseUrl: (

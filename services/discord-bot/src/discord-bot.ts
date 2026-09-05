@@ -52,7 +52,19 @@ export function createDiscordClient(
     channelQueues.set(message.channelId, current);
   });
 
-  void client.login(token);
+  void client.login(token).catch((error: unknown) => {
+    if (
+      error instanceof Error &&
+      error.message.toLowerCase().includes("disallowed intents")
+    ) {
+      logger.error(
+        "Discord refused the Gateway intents. Enable Message Content Intent in the Discord Developer Portal, then restart the bot.",
+      );
+    } else {
+      logger.error({ err: error }, "Discord login failed");
+    }
+    process.exitCode = 1;
+  });
   return client;
 }
 

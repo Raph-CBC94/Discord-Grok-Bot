@@ -21,7 +21,7 @@ fournir le contexte à Grok.
 Obligatoires :
 
 ```text
-DISCORD_BOT_TOKEN=...
+DISCORD_TOKEN=...
 GROK_API_KEY_1=...
 ```
 
@@ -45,6 +45,9 @@ PORT=3000
 
 `GROK_API_KEYS` peut aussi contenir une liste séparée par des virgules, ce qui
 est pratique pour certains hébergeurs.
+
+`DISCORD_BOT_TOKEN` est également accepté comme nom alternatif à
+`DISCORD_TOKEN`.
 
 ## Configuration Discord obligatoire
 

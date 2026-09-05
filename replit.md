@@ -12,7 +12,8 @@ Bot Discord qui répond aux mentions avec Grok et utilise jusqu'à dix clés API
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Bot secrets: `DISCORD_BOT_TOKEN` and at least `GROK_API_KEY_1`; optional keys go
+- Bot secrets: `DISCORD_TOKEN` (or `DISCORD_BOT_TOKEN`) and at least
+  `GROK_API_KEY_1`; optional keys go
   from `GROK_API_KEY_2` to `GROK_API_KEY_10`
 - Optional bot env: `GROK_MODEL`, `GROK_BASE_URL`, `GROK_REQUEST_TIMEOUT_MS`,
   `PORT`
