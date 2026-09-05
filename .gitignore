@@ -1,4 +1,9 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# Secrets — never commit credentials
+.env
+.env.*
+!.env.example
 
 # compiled output
 dist
@@ -19,8 +24,6 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -41,13 +44,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Replit / conversation metadata
 .cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
-
-# Replit
+.github/instructions.md
 .cache/
 .local/
-
-# Conversation transfer metadata
 .conversation/
 .agents/
