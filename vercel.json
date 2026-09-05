@@ -1,6 +1,7 @@
 {
   "version": 2,
   "installCommand": "pnpm install --frozen-lockfile --filter @workspace/discord-bot...",
+  "outputDirectory": "public",
   "functions": {
     "api/index.ts": {
       "maxDuration": 60
