@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: discord-grok-bot
+    runtime: node
+    plan: free
+    buildCommand: pnpm install --frozen-lockfile && pnpm --filter @workspace/discord-bot run build
+    startCommand: pnpm --filter @workspace/discord-bot run start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: GROK_API_KEY_1
+        sync: false
+      - key: GROK_BASE_URL
+        value: https://api.groq.com/openai/v1/chat/completions
+      - key: GROK_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GROK_REQUEST_TIMEOUT_MS
+        value: "45000"
