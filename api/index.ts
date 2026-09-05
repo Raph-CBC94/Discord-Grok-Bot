@@ -50,7 +50,6 @@ export default async function handler(request: Request, response: Response) {
         "Le bot a été démarré par cette invocation Vercel. Ce fonctionnement est uniquement adapté à un test.",
     });
   } catch (error) {
-    console.error("Unable to start Discord bot", error);
     response.status(500).json({
       ok: false,
       discord: "disconnected",
